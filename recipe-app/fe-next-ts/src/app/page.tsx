@@ -13,7 +13,7 @@ export default function Home() {
       </div>
 
       <Link
-        href="/"
+        href="/recipe-list"
         className="mt-8 px-6 py-3 bg-orange-200 text-orange-700 font-semibold rounded-lg shadow-lg hover:shadow-none transition-shadow"
       >
         Explore Recipes
