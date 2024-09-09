@@ -4,7 +4,7 @@ import Link from "next/link"
 const RecipeList = ({ recipe }: { recipe: RecipeProps }) => {
   return (
     <div>
-      <Link href={`/`}>
+      <Link href={`/recipe-list/${recipe.id}`}>
         <div className="rounded-lg border bg-card text-card-foreground shadow-sm transition-transform hover:scale-105 cursor-pointer">
           <div className="p-6 bg-white rounded-md overflow-hidden shadow-md">
             <h3 className="text-lg font-bold text-gray-900">
