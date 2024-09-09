@@ -1,6 +1,7 @@
+import { RecipeProps } from "@/types/types"
 import Link from "next/link"
 
-const RecipeDetails = () => {
+const RecipeDetails = ({ recipe }: { recipe: RecipeProps }) => {
   return (
     <div>
       <Link
@@ -14,18 +15,18 @@ const RecipeDetails = () => {
         <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl font-extrabold text-gray-950">
-              recipe name
+              {recipe.name}
             </h2>
 
             <div className="gap-4 mt-5">
               <p className="text-2xl text-gray-700">
-                meal type
+                {recipe.mealType}
               </p>
             </div>
 
             <div className="mt-5">
               <p className="text-xl text-gray-800">
-                cuisine
+                {recipe.cuisine}
               </p>
             </div>
 
@@ -36,7 +37,11 @@ const RecipeDetails = () => {
               </h3>
 
               <ul className="space-y-3 list-disc mt-4 pl-4 text-sm text-gray-700">
-                list of ingredients
+                {recipe?.ingredients.map((item) => (
+                  <li key={item}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
