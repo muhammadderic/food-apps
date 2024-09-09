@@ -1,7 +1,10 @@
 import RecipeList from "@/components/RecipeList"
+import { fetchAllRecipes } from "@/services/recipeServices"
 import Link from "next/link"
 
-const RecipeListPage = () => {
+const RecipeListPage = async () => {
+  const recipes = await fetchAllRecipes();
+
   return (
     <div className="w-full p-8 flex flex-col">
       <Link
@@ -11,11 +14,13 @@ const RecipeListPage = () => {
         Home
       </Link>
 
+
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <RecipeList key="1" />
-        <RecipeList key="2" />
-        <RecipeList key="3" />
-        <RecipeList key="4" />
+        {
+          recipes.map((recipe => (
+            <RecipeList key={recipe.id} recipe={recipe} />
+          )))
+        }
       </ul>
     </div>
   )
